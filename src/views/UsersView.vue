@@ -28,18 +28,25 @@
     function insert(){
         console.log(user.firstName, user.age);
 
-        users.push(
-            {
-                firstName: user.firstName,
-                age: user.age
-            }
-        );
+        if(user.firstName && user.age){
+            users.push(
+                {
+                    firstName: user.firstName,
+                    age: user.age
+                }
+            );
+        }else{
+            alert("Insira um nome e uma idade.");
+        }
+
     }
 
     function remove(formUser){
-        const index = users.findIndex(user => {return user.firstName === formUser.firstName});
-        users.splice(index, 1);
-        console.log(index);
+        if(formUser.firstName){
+            const index = users.findIndex(user => {return user.firstName === formUser.firstName});
+            users.splice(index, 1);
+            console.log(index);
+        }
     }
 </script>
 
